@@ -4,32 +4,39 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using MyHobbie.Service.Persistencia;
 
 namespace MyHobbie.Service
 {
     public class TocarGuitarraService : ITocarGuitarraService
     {
-        public void Registrar(string MarcaGuitarra, string TipoGuitarra)
+        private GuitarraBL bl;
+
+        public TocarGuitarraService()
+        {
+            bl = new GuitarraBL();
+        }
+        public void Registrar(string Marca, string Tipo)
         {
             try
             {
-
+                bl.Registrar(Marca, Tipo);
             }
             catch (Exception)
             {
-                throw new Exception("No se puede registrar nombre igual de la guitarra");
+                throw new FaultException("Ya existe una Marca con el mismo nombre. Por favor, Ingrese otra.");
             }
         }
 
-        public void Listar()
+        public IList<GuitarraHobbie> Listar()
         {
             try
             {
-
+                return bl.Listar();
             }
             catch (Exception)
             {
-                throw new Exception("Ocurrio un error al mostrar el listado.");
+                throw new FaultException("Ocurrio un error al mostrar el listado.");
             }
         }
     }

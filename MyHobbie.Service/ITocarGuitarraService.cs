@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using MyHobbie.Service.Persistencia;
 
 namespace MyHobbie.Service
 {
@@ -11,9 +12,9 @@ namespace MyHobbie.Service
     public interface ITocarGuitarraService
     {
         [OperationContract]
-        void Registrar(string MarcaGuitarra, string TipoGuitarra);
+        void Registrar(string Marca, string Tipo);
 
         [OperationContract]
-        void Listar();
+        IList<GuitarraHobbie> Listar();
     }
 }

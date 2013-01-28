@@ -64,6 +64,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ITocarGuitarraService.cs" />
+    <Compile Include="Persistencia\BaseDatos.cs" />
+    <Compile Include="Persistencia\BaseDatosException.cs" />
+    <Compile Include="Persistencia\GuitarraHobbie.cs" />
+    <Compile Include="Persistencia\GuitarraBL.cs" />
+    <Compile Include="Persistencia\GuitarraDA.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TocarGuitarraService.svc.cs">
       <DependentUpon>TocarGuitarraService.svc</DependentUpon>
